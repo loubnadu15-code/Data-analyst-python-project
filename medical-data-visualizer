@@ -1,0 +1,26 @@
+Projet réalisé dans le cadre de la certification  
+**FreeCodeCamp – Data Analyst with Python**.
+
+## Description
+Ce projet consiste à analyser des données médicales et à produire des
+visualisations afin d’explorer les relations entre différents indicateurs de santé.
+
+## Objectifs
+- Nettoyer et préparer des données médicales
+- Créer des visualisations avec Matplotlib et Seaborn
+- Analyser des variables catégorielles et numériques
+- Représenter graphiquement des distributions et corrélations
+
+## Technologies
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+
+## Contenu
+- `medical_data_visualizer.py` : script développé pour l’analyse et la visualisation
+- `medical_examination.csv` : jeu de données
+
+## Contexte
+Projet pédagogique illustrant l’utilisation de la visualisation pour l’analyse de données.
