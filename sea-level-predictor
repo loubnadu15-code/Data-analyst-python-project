@@ -1,0 +1,25 @@
+Projet réalisé dans le cadre de ma certification  
+**FreeCodeCamp – Data Analyst with Python**.
+
+## Description
+Ce projet consiste à analyser l’évolution du niveau de la mer à partir de données
+historiques et à prédire son évolution future à l’aide d’une régression linéaire.
+
+## Objectifs
+- Analyser des données environnementales
+- Appliquer une régression linéaire
+- Visualiser des tendances à long terme
+- Interpréter les résultats d’un modèle simple
+
+## Technologies
+- Python
+- Pandas
+- Matplotlib
+- SciPy
+
+## Contenu
+- `sea_level_predictor.py` : script développé pour l’analyse et la prédiction
+- `epa-sea-level.csv` : jeu de donnée
+
+## Contexte
+Projet pédagogique combinant analyse de données et modélisation statistique simple.
