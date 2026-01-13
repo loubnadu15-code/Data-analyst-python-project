@@ -1,0 +1,25 @@
+Projet réalisé dans le cadre de ma certification  
+**FreeCodeCamp – Data Analyst with Python**.
+
+## Description
+Ce projet vise à analyser une série temporelle représentant le nombre de vues
+sur le forum FreeCodeCamp et à produire plusieurs visualisations temporelles.
+
+## Objectifs
+- Manipuler des données temporelles avec Pandas
+- Nettoyer et filtrer une série temporelle
+- Créer des graphiques linéaires, boxplots et visualisations mensuelles
+- Identifier des tendances et variations saisonnières
+
+## Technologies
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+
+## Contenu
+- `time_series_visualizer.py` : script développé pour l’analyse de séries temporelles
+- `fcc-forum-pageviews.csv` : jeu de données
+
+## Contexte
+Projet pédagogique centré sur l’analyse et la visualisation de séries temporelles.
