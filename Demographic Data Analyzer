@@ -1,0 +1,27 @@
+# Demographic Data Analyzer
+
+Projet réalisé dans le cadre de ma certification  
+**FreeCodeCamp – Data Analyst with Python**.
+
+## Description  
+Analyse des données démographiques issues du fichier `adult.data.csv`.  
+Calcul de statistiques descriptives et visualisations simples.
+
+## Objectifs  
+- Nettoyer et préparer les données avec Pandas  
+- Calculer des statistiques comme moyenne, médiane, écart-type  
+- Visualiser les résultats avec Matplotlib et Seaborn
+
+## Technologies  
+- Python  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Seaborn
+
+## Contenu  
+- `demographic_data_analyzer.py` : script principal  
+- `adult.data.csv` : jeu de données
+
+## Contexte  
+Projet pédagogique pour maîtriser les bases de l’analyse de données en Python.
