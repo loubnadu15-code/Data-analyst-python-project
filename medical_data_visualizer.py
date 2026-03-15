@@ -3,10 +3,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 1
+# 1 Lecture du fichier
 df = pd.read_csv('medical_examination.csv')
 
-# 2 - Calculer overweight
+# 2 - Calculer l'obésité
 df['overweight'] = (df['weight'] / ((df['height']/100) ** 2) > 25).astype(int)
 
 # 3 - Normaliser
