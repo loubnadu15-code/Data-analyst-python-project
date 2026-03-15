@@ -4,15 +4,15 @@ from scipy.stats import linregress
 import numpy as np
 
 def draw_plot():
-    # Lire le fichier csv
+    # Lecture du fichier 
     df = pd.read_csv('epa-sea-level.csv')
     
-    # Créer le graphique de dispersion
+    # Création du graphique de dispersion
     fig, ax = plt.subplots(figsize=(12, 8))
     ax.scatter(df['Year'], df['CSIRO Adjusted Sea Level'], 
                color='blue', s=50, alpha=0.6, edgecolors='black', linewidth=0.5, label='Original Data')
     
-    # Créer la première droite de régression (toutes les données depuis 1880)
+    # Création de la première droite de régression (toutes les données depuis 1880)
     slope, intercept, r_value, p_value, std_err = linregress(df['Year'], df['CSIRO Adjusted Sea Level'])
     
     # Générer les années de 1880 à 2050
@@ -21,7 +21,7 @@ def draw_plot():
     
     ax.plot(years_all, sea_level_all, 'r-', linewidth=3, label=f'Fit: 1880-2013 (slope={slope:.4f})')
     
-    # Créer la deuxième droite de régression (à partir de l’an 2000)
+    # Création de la deuxième droite de régression (à partir de l’an 2000)
     df_recent = df[df['Year'] >= 2000]
     
     if len(df_recent) > 1:  # Vérifier qu’il y a suffisamment de points de données
@@ -36,17 +36,17 @@ def draw_plot():
         ax.plot(years_recent, sea_level_recent, 'g-', linewidth=3, 
                 label=f'Fit: 2000-2013 (slope={slope_recent:.4f})')
     
-    # Ajouter les labels et le titre
+    # Ajout des labels et du titre
     ax.set_xlabel('Year', fontsize=14)
     ax.set_ylabel('Sea Level (inches)', fontsize=14)
     ax.set_title('Rise in Sea Level', fontsize=16, fontweight='bold')
     ax.legend(fontsize=12)
     ax.grid(True, linestyle='--', alpha=0.5)
     
-    # Ajouter une ligne verticale pour l’année 2050
+    # Ajout d'une ligne verticale pour l’année 2050
     ax.axvline(x=2050, color='gray', linestyle=':', alpha=0.5)
     
-    # Annoter les prédictions
+    # Annotation des prédictions
     prediction_2050_all = slope * 2050 + intercept
     prediction_2050_recent = slope_recent * 2050 + intercept_recent
     
@@ -57,6 +57,6 @@ def draw_plot():
     
     plt.tight_layout()
     
-    #  Sauvegarder le graphique et retourner les données pour les tests 
+    #  Sauvegarde du graphique et retourner les données pour les tests 
     plt.savefig('sea_level_plot.png', dpi=300, bbox_inches='tight')
     return plt.gca()
