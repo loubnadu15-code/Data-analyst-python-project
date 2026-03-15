@@ -4,10 +4,10 @@ import seaborn as sns
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
-# Import data (Make sure to parse dates. Consider setting index column to 'date'.)
+# Importation des données (il faut analyser les dates et définir la colonne d’index sur 'date'.)
 df = pd.read_csv('fcc-forum-pageviews.csv', parse_dates=['date'], index_col='date')
 
-# Clean data
+# Nettoyage des données
 df = df[
     (df['value'] >= df['value'].quantile(0.025)) &
     (df['value'] <= df['value'].quantile(0.975))
@@ -15,30 +15,30 @@ df = df[
 
 
 def draw_line_plot():
-    # Draw line plot
+    # Dessin du graphique en ligne
     fig, ax = plt.subplots(figsize=(16, 6))
     
-    # Simple red color
+    # Couleur rouge 
     ax.plot(df.index, df['value'], 'r', linewidth=1)
     
     ax.set_title('Daily freeCodeCamp Forum Page Views 5/2016-12/2019')
     ax.set_xlabel('Date')
     ax.set_ylabel('Page Views')
     
-    # Save image and return fig (don't change this part)
+    # Sauvegarder l’image et retourner fig (ne pas toucher cette partie)
     fig.savefig('line_plot.png')
     return fig
 
 def draw_bar_plot():
-    # Copy and modify data for monthly bar plot
+    # Copie et modification des données pour le graphique en barres mensuel
     df_bar = df.copy()
     df_bar['year'] = df_bar.index.year
     df_bar['month'] = df_bar.index.month
     
-    # Group by year and month
+    # Regrouper par année et par mois
     df_grouped = df_bar.groupby(['year', 'month'])['value'].mean().unstack()
     
-    # Draw bar plot
+    # Dessine du graphique en bar plot
     fig = df_grouped.plot(kind='bar', figsize=(10, 8)).figure
     
     plt.xlabel('Years')
@@ -50,27 +50,27 @@ def draw_bar_plot():
     
     plt.tight_layout()
     
-    # Save image and return fig (don't change this part)
+    # Sauvegarder l’image et retourner fig (ne pas toucher cette partie)
     fig.savefig('bar_plot.png')
     return fig
 
 def draw_box_plot():
-    # Prepare data for box plots (this part is done!)
+    # Prépareration des données pour les box plots (cette partie est déjà faite !)
     df_box = df.copy()
     df_box.reset_index(inplace=True)
     df_box['year'] = [d.year for d in df_box.date]
     df_box['month'] = [d.strftime('%b') for d in df_box.date]
 
-    # Draw box plots (using Seaborn)
+    # Dessin des box plots (en utilisant Seaborn)
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
     
-    # Year-wise box plot
+    # Box plot par année
     sns.boxplot(x='year', y='value', data=df_box, ax=ax1)
     ax1.set_title('Year-wise Box Plot (Trend)')
     ax1.set_xlabel('Year')
     ax1.set_ylabel('Page Views')
     
-    # Month-wise box plot
+    # Box plot par mois
     month_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     sns.boxplot(x='month', y='value', data=df_box, ax=ax2, order=month_order)
@@ -80,6 +80,6 @@ def draw_box_plot():
     
     plt.tight_layout()
     
-    # Save image and return fig (don't change this part)
+    # Sauvegarder l’image et retourner fig (ne pas toucher cette partie)
     fig.savefig('box_plot.png')
     return fig
