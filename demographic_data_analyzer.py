@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def calculate_demographic_data(print_data=True):
-    # Lire les données depuis le fichier CSV
+    # Lecture des données depuis le fichier CSV
     df = pd.read_csv("adult.data.csv")
 
     # 1. Combien de personnes de chaque race sont représentées dans ce jeu de données ?
